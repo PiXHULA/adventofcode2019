@@ -1,12 +1,15 @@
 package dayOne;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class partOne {
     /*
 Fuel required to launch a given module is based on its mass.
 Specifically, to find the fuel required for a module:
 take its mass, divide by three, round down, and subtract 2.
  */
-    public static int[] masses = {
+    public static int [] masses = {
             93326, 54591, 106194, 129163, 110634, 81294, 59548, 77988, 66354, 108990,
             91097, 102076, 67526, 135820, 109167, 94391, 78323, 75009, 61836, 55751,
             54229, 145159, 103821, 136601, 119830, 57607, 69157, 115099, 53756, 136063,
@@ -18,18 +21,17 @@ take its mass, divide by three, round down, and subtract 2.
             136330, 64877, 65449, 65008, 91656, 144705, 130867, 74732, 61977, 129490,
             91928, 109200, 94488, 99216, 89115, 89756, 52113, 83463, 101765, 62363};
 
-    public static double fuelReq(int mass){
-        return (Math.floor(mass / 3)) - 2;
+    public static int fuelReq(int mass){
+        return (mass / 3) - 2;
     }
     public static int collectedFuel(int [] masses){
         int collectedFuel = 0;
-        for(int mass : partOne.masses){
-            collectedFuel += fuelReq(mass);
+        for(int mass : masses){
+            collectedFuel += ((mass / 3) - 2);
         }
         return collectedFuel;
     }
     public static void main(String[] args) {
-
         System.out.println(collectedFuel(masses));
         System.out.println(fuelReq(1969));
         System.out.println(fuelReq(100756));
